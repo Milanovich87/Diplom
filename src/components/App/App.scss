@@ -1,0 +1,69 @@
+@import "../styles/variables";
+@import "../styles/fonts";
+
+.App {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    height: 100vh;
+    background-color: $color-background-main;
+}
+.App--dark {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    height: 100vh;
+    background-color: $color-secondary;
+}
+
+.form {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.inputs {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: $indent-xl;
+    align-items: start;
+    .title {
+        font-size: $font-size-subline-1;
+        color: $color-background-primary;
+        margin-bottom: -17px;
+    }
+}
+
+.main--light {
+    max-width: 75rem;
+    background-color: $color-background-main;
+    margin: 0 auto;
+    padding-top: 72px;
+}
+.main--dark {
+    max-width: 75rem;
+    background-color: $color-secondary;
+    margin: 0 auto;
+    padding-top: 72px;
+}
+
+.button__home {
+    font-family: InterRegular, sans-serif;
+    text-align: center;
+    font-weight: 400;
+    font-size: $font-size-subline-1;
+    line-height: 24px;
+    padding: $indent-xs;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    color: $color-secondary;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+
+    &:not([disabled]):hover {
+        color: $color-primary;
+        cursor: pointer;
+    }
+}

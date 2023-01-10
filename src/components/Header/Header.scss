@@ -1,0 +1,123 @@
+@import '../styles/variables';
+@import '../styles/fonts';
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+.header__body {
+  max-width: 100%;
+  height: 84px;
+  background-color: #dfa034;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .search__form{
+    display: none;
+  }
+
+    .showsearch__form {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      .search__input{
+        width: 100%;
+        background-color: #5360CD;
+        border: none;
+        font-family: InterRegular, sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          color: #FFFFFF;
+          padding-left: 32px;
+          &::placeholder{
+                    font-family: InterRegular, sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 24px;
+                    color: #FFFFFF;
+                    // padding-left: 32px;
+          }
+      }
+          .button__close {
+              background-color: #5360CD;
+              padding: 0 32px 0 32px;
+            }
+    }
+
+  .header__burger {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .header__btn {
+      border-right: 1px solid #5360CD;
+    }
+  }
+
+    .header__button {
+      width: 84px;
+      display: block;
+      height: 100%;
+      margin: 0;
+      background-color: transparent;
+      padding: 0 32px;
+      outline: none;
+      border: none;
+      border-left: 1px solid #5360CD;
+      border-right: 1px solid #5360CD;
+      &:hover {
+        cursor: pointer;
+        background-color: #2737cf;
+      }
+    }
+  .header__navbar {
+    height: 100%;
+        max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .user{
+      width: 84px;
+    }
+    .initials{
+      display: flex;
+      width: 48px;
+        height: 48px;
+        background: #5360CD;
+        border-radius: 2px;
+        font-family: InterSemiBold, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 34px;
+        color: #FFFFFF;
+        align-items: center;
+        justify-content: center;
+        margin-left: 30px;
+    }
+    .username{
+              max-width: 100%;
+              white-space: nowrap;
+      font-family: InterSemiBold, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 34px;
+        color: #FFFFFF;
+        margin: 0 32px 0 18px;
+    }
+  }
+}
+
+

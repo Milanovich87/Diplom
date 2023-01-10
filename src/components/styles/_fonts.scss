@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "InterBold";
+    src: local("InterBold"),
+        url('../../assets/fonts/Inter/Inter-Bold.ttf') format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "InterRegular";
+    src: local("InterRegular"),
+        url("../../assets/fonts/Inter/Inter-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "InterSemiBold";
+    src: local("InterSemiBold"),
+        url("../../assets/fonts/Inter/Inter-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}

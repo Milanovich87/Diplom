@@ -1,0 +1,689 @@
+@import '../styles/variables';
+@import '../styles/fonts';
+
+
+
+.card--big--light {
+  max-width: 736px;
+  background-color: $color-background-main;
+  margin: 20px auto;
+
+  .card__main{
+    display: flex;
+    text-align: start;
+    .photo--big{
+      max-width: 256px;
+    }
+  }
+
+    .card__info{
+    margin-right: $indent-m;
+  }
+
+    .card__date{
+    font-family: InterRegular, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: $font-size-subline-1;
+      line-height: $indent-s;
+      margin-bottom: $indent-xxs;
+      color: $color-background-primary;
+  }
+  
+    .card__title{
+    font-family: $font-family-headline;
+      font-style: normal;
+      font-weight: 700;
+      font-size: $font-size-headline-2-desktop;
+      line-height: 44px;
+      color: $color-secondary;
+      text-decoration: none;
+      & h3 {
+          display: flex;
+          margin-top: 0;
+          margin-bottom: $indent-s;
+        }
+  }
+
+    .card__description{
+    font-family: $font-family-body;
+      font-size: $font-size-body-1;
+      font-weight: 400;
+      line-height: 28px;
+      color: $color-background-primary;
+  }
+
+    .card__footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+    .card__like{
+    display: flex;
+    .btn-like {
+        margin-left: 0;
+        & svg{
+          padding-left: 0;
+          padding-right: 10px;
+        }
+      }
+            .btn-dislike {
+              margin-left: 0;
+      
+              & svg {
+                padding-left: 0;
+                padding-right: 10px;
+              }
+            }
+  }
+
+    .card__edit {
+    display: flex;
+
+  }
+
+     .card__title:hover {
+       color: $color-primary;
+       cursor: pointer;
+      text-decoration: none;
+     }
+
+        .card__line {
+          border-bottom: 2px solid $color-background-primary;
+          margin: 41px 0 20px 0;
+    
+        }
+    
+    
+        .btn-card {
+          background-color: transparent;
+          color: black;
+          transition: 0.4s;
+          cursor: pointer;
+
+        }
+}
+.card--big--dark {
+  max-width: 736px;
+  background-color: $color-secondary;
+  margin: 20px auto;
+  .btn-card--btn-mark--true {
+      background: $color-secondary;
+      .bookmark--light,
+      .bookmark--dark {
+        color: red;
+      }
+    }
+    .btn-card--btn-mark--false {
+      background: $color-secondary;
+    }
+
+  .card__main {
+    display: flex;
+    text-align: start;
+        .photo--big {
+            max-width: 256px;
+          }
+  }
+
+  .card__info {
+    margin-right: $indent-m;
+  }
+
+  .card__date {
+    font-family: InterRegular, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $font-size-subline-1;
+    line-height: $indent-s;
+    margin-bottom: $indent-xxs;
+    color: $color-background-primary;
+  }
+
+  .card__title {
+    font-family: $font-family-headline;
+    font-style: normal;
+    font-weight: 700;
+    font-size: $font-size-headline-2-desktop;
+    line-height: 44px;
+    color: $color-white;
+    text-decoration: none;
+
+    & h3 {
+      display: flex;
+      margin-top: 0;
+      margin-bottom: $indent-s;
+    }
+  }
+
+  .card__description {
+    font-family: $font-family-body;
+    font-size: $font-size-body-1;
+    font-weight: 400;
+    line-height: 28px;
+    color: $color-background-primary;
+  }
+
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    span {
+        color: $color-white;
+      }
+  }
+
+  .card__like {
+    display: flex;
+
+    .btn-like {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+
+    .btn-dislike {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .card__edit {
+    display: flex;
+
+  }
+
+.card__title:hover {
+  color: $color-primary;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+  .card__line {
+    border-bottom: 2px solid $color-background-primary;
+    margin: 41px 0 20px 0;
+
+  }
+
+
+  .btn-card {
+    background-color: transparent;
+    color: black;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+}
+
+.card--middle {
+  max-width: 352px;
+  background-color: $color-background-main;
+  margin: auto 16px;
+  padding-bottom: 18px;
+
+  .card__main {
+    display: flex;
+    text-align: start;
+    flex-wrap: wrap-reverse;
+        .photo--middle {
+            max-width: 352px;
+          }
+  }
+
+  .card__info {
+    margin-bottom: 0;
+  }
+
+  .card__date {
+    font-family: $font-family-subline;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $font-size-subline-1;
+    line-height: $indent-s;
+    margin: 18px 0 8px 0;
+    color: $color-background-primary;
+  }
+
+  .card__title {
+    font-family: $font-family-headline;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $font-size-subline-1;
+    line-height: 28px;
+    color: $color-secondary;
+    text-decoration: none;
+
+    & h3 {
+      display: flex;
+      margin-top: 0;
+      margin-bottom: 0;
+    }  
+  }
+
+  .card__description {
+    font-family: $font-family-body;
+    font-size: $font-size-body-1;
+    font-weight: 400;
+    line-height: 28px;
+    color: $color-background-primary;
+    margin-bottom: 0;
+    // display: none;
+  }
+
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .card__like {
+    display: flex;
+
+    .btn-like {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+
+    .btn-dislike {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .card__edit {
+    display: flex;
+
+  }
+
+.card__title:hover {
+  color: $color-primary;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+  .card__line {
+    border-bottom: 2px solid $color-background-primary;
+    margin: 41px 0 20px 0;
+
+  }
+
+
+  .btn-card {
+    background-color: transparent;
+    color: black;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+}
+.card--middle--dark {
+  max-width: 352px;
+  background-color: $color-secondary;
+  margin: auto 16px;
+  padding-bottom: 18px;
+    .btn-card--btn-mark--true {
+        background: $color-secondary;
+    
+        .bookmark--light,
+        .bookmark--dark {
+          color: red;
+        }
+      }
+    
+      .btn-card--btn-mark--false {
+        background: $color-secondary;
+      }
+  .card__main {
+    display: flex;
+    text-align: start;
+    flex-wrap: wrap-reverse;
+            .photo--middle {
+                max-width: 352px;
+              }
+  }
+
+  .card__info {
+    margin-bottom: 0;
+  }
+
+  .card__date {
+    font-family: $font-family-subline;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $font-size-subline-1;
+    line-height: $indent-s;
+    margin: 18px 0 8px 0;
+    color: $color-background-primary;
+  }
+
+  .card__title {
+    font-family: $font-family-headline;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $font-size-subline-1;
+    line-height: 28px;
+    color: $color-white;
+    text-decoration: none;
+
+    & h3 {
+      display: flex;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .card__description {
+    font-family: $font-family-body;
+    font-size: $font-size-body-1;
+    font-weight: 400;
+    line-height: 28px;
+    color: $color-background-primary;
+    margin-bottom: 0;
+    // display: none;
+  }
+
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    span {
+        color: $color-white;
+      }
+  }
+
+  .card__like {
+    display: flex;
+
+    .btn-like {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+
+    .btn-dislike {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .card__edit {
+    display: flex;
+
+  }
+
+.card__title:hover {
+  color: $color-primary;
+  cursor: pointer;
+  text-decoration: none;
+}
+  .card__line {
+    border-bottom: 2px solid $color-background-primary;
+    margin: 41px 0 20px 0;
+
+  }
+
+
+  .btn-card {
+    background-color: transparent;
+    color: black;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+}
+
+.card--small--light {
+  max-width: 352px;
+  background-color: $color-background-main;
+  margin: 20px auto;
+
+  .card__main {
+    display: flex;
+    text-align: start;
+    .photo--small {
+        max-width: 96px;
+      }
+  }
+
+  .card__info {
+    margin-bottom: 0;
+  }
+
+  .card__date {
+    font-family: $font-family-subline;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $font-size-subline-1;
+    line-height: $indent-s;
+    margin: 1px 0 $indent-xxs 0;
+    color: $color-background-primary;
+  }
+
+  .card__title {
+    font-family: $font-family-headline;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $font-size-subline-1;
+    line-height: 28px;
+    color: $color-secondary;
+    text-decoration: none;
+
+    & h3 {
+      display: flex;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .card__description {
+    font-family: $font-family-body;
+    font-size: $font-size-body-1;
+    font-weight: 400;
+    line-height: 28px;
+    color: $color-background-primary;
+    margin-bottom: 0;
+    // display: none;
+  }
+
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card__like {
+    display: flex;
+
+    .btn-like {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+
+    .btn-dislike {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .card__edit {
+    display: flex;
+
+  }
+
+.card__title:hover {
+  color: $color-primary;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+  .card__line {
+    border-bottom: 2px solid $color-background-primary;
+    margin: 40px 0 0 0;
+
+  }
+
+
+  .btn-card {
+    background-color: transparent;
+    color: black;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+}
+.card--small--dark {
+  max-width: 352px;
+  background-color: $color-secondary;
+  margin: 20px auto;
+  .btn-card--btn-mark--true {
+      background: $color-secondary;
+  
+      .bookmark--light,
+      .bookmark--dark {
+        color: red;
+      }
+    }
+  
+    .btn-card--btn-mark--false {
+      background: $color-secondary;
+    }
+
+  .card__main {
+    display: flex;
+    text-align: start;
+    .photo--small {
+        max-width: 96px;
+      }
+  }
+
+  .card__info {
+    margin-bottom: 0;
+  }
+
+  .card__date {
+    font-family: $font-family-subline;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $font-size-subline-1;
+    line-height: $indent-s;
+    margin: 1px 0 $indent-xxs 0;
+    color: $color-background-primary;
+  }
+
+  .card__title {
+    font-family: $font-family-headline;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $font-size-subline-1;
+    line-height: 28px;
+    color: $color-white;
+    text-decoration: none;
+
+    & h3 {
+      display: flex;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .card__description {
+    font-family: $font-family-body;
+    font-size: $font-size-body-1;
+    font-weight: 400;
+    line-height: 28px;
+    color: $color-background-primary;
+    margin-bottom: 0;
+    // display: none;
+  }
+
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+    span {
+        color: $color-white;
+      }
+  }
+
+  .card__like {
+    display: flex;
+
+    .btn-like {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+
+    .btn-dislike {
+      margin-left: 0;
+
+      & svg {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .card__edit {
+    display: flex;
+  }
+
+    .card__title:hover {
+      color: $color-primary;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+  .card__line {
+    border-bottom: 2px solid $color-background-primary;
+    margin: 40px 0 0 0;
+
+  }
+
+
+  .btn-card {
+    background-color: transparent;
+    color: black;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+}
+
+.btn-card--btn-mark--true{
+  background: $color-background-main;
+  .bookmark--light, .bookmark--dark{
+    color: red;
+  }
+}
+
+.btn-card--btn-mark--false {
+  background: $color-background-main;
+}

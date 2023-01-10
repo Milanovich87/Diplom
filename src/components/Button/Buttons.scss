@@ -1,0 +1,312 @@
+@import '../styles/variables';
+@import '../styles/fonts';
+
+.btn--light {
+    font-family: InterSemiBold, sans-serif;
+    font-size: $font-size-headline-3-desktop;
+    border-radius: 2px;
+    text-align: center;
+    border: none;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    .btn-card--btn-mark--true{
+  background: $color-background-main;
+  .bookmark--light, .bookmark--dark{
+    color: red;
+  }
+}
+    &:hover{
+        background-color: transparent;
+            color: black;
+            transition: 0.4s;
+            cursor: pointer;
+    }
+        &:disabled {
+                background-color: $color-light;
+                color: $color-background-primary;
+                opacity: 0.5;
+            }
+            &.form__btn{
+                width: 100%;
+                    margin-top: $indent-ml;
+                    padding: $indent-xs;
+                    font-weight: 600;
+                    font-size: $font-size-headline-3-desktop;
+                    line-height: 24px;
+                    color: #fff;
+                    background: $color-primary;
+                    border: none;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    transition: background 0.3s;
+                    display: block;
+                    &:hover {
+                        background-color: $color-primary2;
+                    }
+            }
+
+.btn-primary {
+    padding: 16px 32px;
+    color: $color-white;
+    background: $color-primary;
+
+    &:not([disabled]):hover {
+        background: $color-primary2;
+    }
+}
+
+.btn-secondary {
+    padding: 16px 32px;
+    background: $color-background-primary;
+    color: $color-secondary;
+
+    &:not([disabled]):hover {
+        background: $color-light;
+    }
+}
+
+.btn-secondary2 {
+    padding: 16px 32px;
+    background: $color-white;
+    color: $color-error;
+
+    &:not([disabled]):hover {
+        border: 1px solid $color-background-primary2;
+    }
+
+    &:disabled {
+        border: none;
+        background-color: $color-light;
+    }
+}
+
+.btn-dis-like {
+    background-color: $color-light;
+    border-radius: 2px;
+    text-align: center;
+    border: none;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+
+    &:not([disabled]):hover {
+        background: $color-error;
+    }
+
+    &:disabled {
+        background-color: $color-light;
+        color: $color-background-primary;
+        opacity: 0.5;
+    }
+}
+
+.btn-like {
+    background-color: $color-light;
+    border-radius: 2px;
+    text-align: center;
+    border: none;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+
+    &:not([disabled]):hover {
+        background: #5360CD;
+    }
+
+    &:disabled {
+        background-color: $color-background-primary2;
+        color: $color-background-primary;
+        opacity: 0.5;
+    }
+}
+
+.btn-book-mark {
+    padding: 16px 32px;
+    background:  $color-white;
+    color: $color-secondary;
+
+    &:not([disabled]):hover {
+        background: $color-primary2;
+        color: $color-white;
+    }
+}
+
+.btn-book-mark {
+    border-radius: 2px;
+    text-align: center;
+    border: none;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+
+    &:not([disabled]):hover {
+        background: #5360CD;
+    }
+
+    &:disabled {
+        background-color: $color-background-primary2;
+        color: $color-background-primary;
+        opacity: 0.5;
+    }
+}
+}
+
+
+
+.btn--dark {
+    font-family: InterSemiBold, sans-serif;
+    font-size: $font-size-headline-3-desktop;
+    border-radius: 2px;
+    text-align: center;
+    border: none;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    background-color: $color-secondary;
+    color: $color-white;
+    &:hover {
+        background-color: transparent;
+        color: $color-primary2;
+        transition: 0.4s;
+        cursor: pointer;
+    }
+
+    &:disabled {
+        background-color: $color-light;
+        color: $color-background-primary;
+        opacity: 0.5;
+    }
+
+    &.form__btn {
+        width: 100%;
+        margin-top: $indent-ml;
+        padding: $indent-xs;
+        font-weight: 600;
+        font-size: $font-size-headline-3-desktop;
+        line-height: 24px;
+        color: #fff;
+        background: $color-primary;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: background 0.3s;
+        display: block;
+
+        &:hover {
+            background-color: $color-primary2;
+        }
+    }
+
+    .btn-primary {
+        padding: 16px 32px;
+        color: $color-white;
+        background: $color-primary;
+
+        &:not([disabled]):hover {
+            background: $color-primary2;
+        }
+    }
+
+    .btn-secondary {
+        padding: 16px 32px;
+        background: $color-background-primary;
+        color: $color-secondary;
+
+        &:not([disabled]):hover {
+            background: $color-light;
+        }
+    }
+
+    .btn-secondary2 {
+        padding: 16px 32px;
+        background: $color-white;
+        color: $color-error;
+
+        &:not([disabled]):hover {
+            border: 1px solid $color-background-primary2;
+        }
+
+        &:disabled {
+            border: none;
+            background-color: $color-light;
+        }
+    }
+
+    .btn-dis-like {
+        background: $color-secondary;;
+        border-radius: 2px;
+        text-align: center;
+        border: none;
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+.dislike {
+        fill: $color-white;
+        padding: 17px 33px;
+
+        &:not([disabled]):hover {
+            fill: $color-primary2;
+        }
+    }
+
+        &:not([disabled]):hover {
+            color: $color-primary2;
+        }
+
+        &:disabled {
+            background-color: $color-light;
+            color: $color-background-primary;
+            opacity: 0.5;
+        }
+    }
+
+    .btn-like {
+        background-color: $color-light;
+        border-radius: 2px;
+        text-align: center;
+        border: none;
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+
+        &:not([disabled]):hover {
+            background: #5360CD;
+        }
+
+        &:disabled {
+            background-color: $color-background-primary2;
+            color: $color-background-primary;
+            opacity: 0.5;
+        }
+    }
+
+    .btn-book-mark {
+        padding: 16px 32px;
+        background: $color-light;
+
+        &:not([disabled]):hover {
+            background: $color-primary2;
+            color: $color-white;
+        }
+    }
+
+    .btn-book-mark {
+        border-radius: 2px;
+        text-align: center;
+        border: none;
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+
+        &:not([disabled]):hover {
+            background: $color-primary2;
+        }
+
+        &:disabled {
+            background-color: $color-background-primary2;
+            color: $color-background-primary;
+            opacity: 0.5;
+        }
+    }
+}

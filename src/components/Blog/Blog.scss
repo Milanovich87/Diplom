@@ -1,0 +1,46 @@
+@import '../styles/variables';
+@import '../styles/fonts';
+
+.blog__body {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row;
+  padding: $indent-xxl 0;
+.blog__main-content {
+    max-width: 65%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  }
+
+  .blog__feat-content {
+    max-width: 35%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: right;
+  }
+
+}
+
+.blog__body--dark {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row;
+  padding: $indent-xxl 0;
+  background-color: $color-secondary;
+
+  .blog__main-content {
+    max-width: 65%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  }
+
+  .blog__feat-content {
+    max-width: 35%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: right;
+  }
+
+}
