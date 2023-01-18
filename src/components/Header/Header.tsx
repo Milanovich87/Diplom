@@ -12,28 +12,25 @@ import { setSearchValue } from '../../redux/actionCreators/booksActionCreators'
 // import { IconHeart } from '../MyIcons/IconHeart'
 
 export const Header = () => {
-    // const UserName = 'Artem Malkin'
-    // const UserNameInitials = UserName.split(' ').map(function (x) { return x[0].toUpperCase(); })
+
     const [show, setShow] = useState('')
     const onClick = () => setShow('show')
     const search = show === ' ' ? ' ' : show
     const onClickClose = () => setShow(' ')
     const searchValue = useSelector((state: IStore) => state.books.searchValue);
+    console.log(searchValue)
     const dispatch = useDispatch();
 
-
     const handleInputChange = (e: any) => {
-        // debounce(() => {
-        //     dispatch(setSearchValue(e.target.value))
-        // }, 500)
         dispatch(setSearchValue(e.target.value))
     }
+
+
 
     return (
         <div className="header">
             <header className='header__body'>
                 <div className='header__burger'>
-                    {/* <Burger setMenu={Function} /> */}
                 </div>
                 <form className={`${search}search__form`}>
                     <input
@@ -49,13 +46,10 @@ export const Header = () => {
                     <Button className='header__button' onClick={onClick}>поиск</Button>
                     <Button className='header__button' >сердце</Button>
                     <div className="user">
-
                         юзер
-
-                        {/* <div className='initials'>{UserNameInitials}</div>
-                    <div className="username">{UserName}</div> */}
                     </div>
                 </div>
+
             </header>
         </div>
 

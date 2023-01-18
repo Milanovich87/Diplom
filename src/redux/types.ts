@@ -1,6 +1,6 @@
 
 export interface IBook {
-    isbn13: number,
+    isbn13?: number,
     image?: string,
     title?: string,
     subtitle?: string,
@@ -8,20 +8,21 @@ export interface IBook {
 }
 
 export interface IBooksStore {
+    oneBook: IBook | null,
     books: IBook[],
     countTotal: number,
     searchValue: string,
 
 }
-
+export interface ISettingsStore {
+    currentPage: number,
+    booksPerPage: number,
+}
 export interface IStore {
     books: IBooksStore,
     settings: ISettingsStore,
 
 }
 
-export interface ISettingsStore {
-    currentPage: number,
-    rowsPerPage: number,
-}
+
 

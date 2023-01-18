@@ -1,20 +1,37 @@
+import { useParams } from "react-router-dom";
 import { put, takeEvery } from "redux-saga/effects";
-import { LOAD_BOOKS, SET_BOOKS, SET_COUNT_TOTAL, SET_SEARCH_VALUE } from "../actionTypes/booksActionTypes";
+import { LOAD_BOOK, LOAD_BOOKS, SET_BOOK, SET_BOOKS, SET_COUNT_TOTAL, SET_SEARCH_VALUE } from "../actionTypes/booksActionTypes";
 import { IBook } from "../types";
 
 function* fetchLoadBooks(action: any) {
-    const { payload } = action;
-    const { rowsPerPage, currentPage, searchValue } = payload;
     const response: Response = yield fetch(`https://api.itbook.store/1.0/new`);
     const data: { total: number, books: IBook[] } = yield response.json();
-    const { books, total } = data;
+    const { total, books } = data;
     yield put(setBooksTotal(total));
     yield put(setBooks(books));
-    console.log(data);
+    console.log(total);
     console.log(books);
 }
 
-const dataLoad = (payload: { currentPage: number, rowsPerPage: number, searchValue: string }) => ({
+
+
+function* fetchSelectBook(action: any) {
+    const { bookId } = action;
+    try {
+        const response: Response = yield fetch(`https://api.itbook.store/books/${bookId}`);
+        if (!response.ok) {
+            alert("Ошибка!!!");
+            throw new Error("Error searching");
+        }
+        const data: IBook[] = yield response.json();
+        yield put(setBook(data));
+    } catch (error: any) {
+        console.log(error);
+    }
+
+}
+
+const dataLoad = (payload: { searchValue: string, booksPerPage: number, currentPage: number }) => ({
     type: LOAD_BOOKS,
     payload,
 })
@@ -33,8 +50,21 @@ const setBooks = (books: IBook[]) => ({
     books,
 });
 
+const bookLoad = (bookId: string) => ({
+    type: LOAD_BOOK,
+    bookId,
+});
+
+
+const setBook = (book: IBook[]) => ({
+    type: SET_BOOK,
+    book,
+});
+
+
 function* watcherBooks() {
     yield takeEvery(LOAD_BOOKS, fetchLoadBooks)
+    yield takeEvery(LOAD_BOOK, fetchSelectBook)
 
 }
 
@@ -44,4 +74,6 @@ export {
     dataLoad,
     setSearchValue,
     setBooksTotal,
+    setBook,
+    bookLoad
 };
