@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import { Burger } from '../Burger/Burger'
 import { Button } from '../Button/Button'
 // import { IconClose } from '../MyIcons/IconClose'
@@ -9,6 +9,9 @@ import './Header.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { setSearchValue } from '../../redux/actionCreators/booksActionCreators'
+import { IconBasket } from '../MyIcons/SvgDisLike'
+import { Link } from 'react-router-dom'
+import store from '../../redux/store'
 // import { IconHeart } from '../MyIcons/IconHeart'
 
 export const Header = () => {
@@ -24,13 +27,16 @@ export const Header = () => {
     const handleInputChange = (e: any) => {
         dispatch(setSearchValue(e.target.value))
     }
+    const totalBooksBasket = useSelector((state: IStore) => state.books.totalBooksBasket)
+
 
 
 
     return (
         <div className="header">
             <header className='header__body'>
-                <div className='header__burger'>
+                <div className='header__logo'>
+                    <h2>BOOKSTORE</h2>
                 </div>
                 <form className={`${search}search__form`}>
                     <input
@@ -44,7 +50,7 @@ export const Header = () => {
                 </form>
                 <div className='header__navbar'>
                     <Button className='header__button' onClick={onClick}>поиск</Button>
-                    <Button className='header__button' >сердце</Button>
+                    <Link className='header__button' to={'/basket'} ><span>{totalBooksBasket}</span><IconBasket /></Link>
                     <div className="user">
                         юзер
                     </div>
@@ -55,5 +61,7 @@ export const Header = () => {
 
     )
 }
+
+
 
 

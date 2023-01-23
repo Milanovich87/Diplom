@@ -4,20 +4,19 @@ import { useParams } from "react-router-dom"
 import { bookLoad } from "../../redux/actionCreators/booksActionCreators"
 import { IBook, IStore } from "../../redux/types"
 import { Book } from "../Card/Card.data"
-import { Image } from '../Image/Image'
 
 interface ICard extends IBook {
     variant: string
 }
 
 export const FullBook = ({ variant, title, subtitle, image, isbn13 }: ICard) => {
-    const { oneBook } = useSelector((state: IStore) => state.books);
+    const oneBook = useSelector((state: IStore) => state.books.oneBook);
     const dispatch = useDispatch();
     const { bookId } = useParams()
 
     useEffect(() => {
         dispatch(bookLoad(bookId!));
-    }, []);
+    }, [bookId]);
     console.log(bookId)
     console.log(oneBook)
 

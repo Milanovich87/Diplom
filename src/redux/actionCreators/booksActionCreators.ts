@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom";
 import { put, takeEvery } from "redux-saga/effects";
-import { LOAD_BOOK, LOAD_BOOKS, SET_BOOK, SET_BOOKS, SET_COUNT_TOTAL, SET_SEARCH_VALUE } from "../actionTypes/booksActionTypes";
+import { ADD_BOOK, LOAD_BOOK, LOAD_BOOKS, REMOVE_BOOK, SET_BOOK, SET_BOOKS, SET_BOOKS_CART, SET_COUNT_TOTAL, SET_SEARCH_VALUE, SET_TOTAL_BOOKS_CART } from "../actionTypes/booksActionTypes";
 import { IBook } from "../types";
 
 function* fetchLoadBooks(action: any) {
@@ -14,13 +13,12 @@ function* fetchLoadBooks(action: any) {
 }
 
 
-
 function* fetchSelectBook(action: any) {
     const { bookId } = action;
     try {
-        const response: Response = yield fetch(`https://api.itbook.store/books/${bookId}`);
+        const response: Response = yield fetch(`https://api.itbook.store/1.0/books/${bookId}`);
         if (!response.ok) {
-            alert("Ошибка!!!");
+            // alert("Ошибка!!!");
             throw new Error("Error searching");
         }
         const data: IBook[] = yield response.json();
@@ -62,6 +60,25 @@ const setBook = (book: IBook[]) => ({
 });
 
 
+const addBook = (isbn13: number) => ({
+    type: ADD_BOOK,
+    isbn13
+});
+
+const removeBook = (isbn13: number) => ({
+    type: REMOVE_BOOK,
+    isbn13
+});
+
+const setCartBooksTotal = (isbn13: number) => ({
+    type: SET_TOTAL_BOOKS_CART,
+    isbn13
+});
+const setBooksCart = (bookscart: IBook[]) => ({
+    type: SET_BOOKS_CART,
+    bookscart
+});
+
 function* watcherBooks() {
     yield takeEvery(LOAD_BOOKS, fetchLoadBooks)
     yield takeEvery(LOAD_BOOK, fetchSelectBook)
@@ -75,5 +92,11 @@ export {
     setSearchValue,
     setBooksTotal,
     setBook,
-    bookLoad
+    bookLoad,
+    addBook,
+    removeBook,
+    setCartBooksTotal,
+    setBooksCart,
+
+
 };

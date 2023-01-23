@@ -1,12 +1,16 @@
 
 import { IBooksStore } from '../types';
-import { SET_BOOK, SET_BOOKS, SET_COUNT_TOTAL, SET_SEARCH_VALUE } from '../actionTypes/booksActionTypes';
+import { ADD_BOOK, REMOVE_BOOK, SET_BOOK, SET_BOOKS, SET_BOOKS_CART, SET_COUNT_TOTAL, SET_SEARCH_VALUE, SET_TOTAL_BOOKS_CART } from '../actionTypes/booksActionTypes';
 
 const initialState = {
     books: [],
     countTotal: 0,
     searchValue: '',
     oneBook: null,
+    booksInBasket: [],
+    totalBooksBasket: 0,
+    bookscart: [],
+
 
 
 
@@ -41,6 +45,39 @@ const booksReducer = (state: IBooksStore = initialState, action: any) => {
             return ({
                 ...state,
                 oneBook: book,
+            })
+        }
+        case ADD_BOOK: {
+            const { isbn13 } = action;
+            return ({
+                ...state,
+                booksInBasket: [...state.booksInBasket, isbn13],
+
+            })
+        }
+        case REMOVE_BOOK: {
+            const { isbn13 } = action;
+            return ({
+                ...state,
+                booksInBasket: state.booksInBasket.filter((el) => el !== isbn13),
+
+            })
+        }
+        case SET_TOTAL_BOOKS_CART: {
+            const { isbn13 } = action;
+            return ({
+                ...state,
+                totalBooksBasket: state.booksInBasket.filter((el) => el !== isbn13).length,
+
+            })
+        }
+        case SET_BOOKS_CART: {
+            const { bookscart } = action;
+            return ({
+                ...state,
+                bookscart,
+
+
             })
         }
 

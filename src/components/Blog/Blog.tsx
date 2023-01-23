@@ -55,7 +55,7 @@ export const Blog = () => {
         <>
             <div className={`blog__body`}>
                 <div className='blog__main-content'>
-                    {currentBook.map((card, i) => <Book key={card.isbn13} variant='middle' isbn13={card.isbn13} title={card.title} image={card.image} />)}
+                    {currentBook.map((card, i) => <Book key={card.isbn13} variant='middle' price={card.price} isbn13={card.isbn13} title={card.title} image={card.image} />)}
                 </div>
             </div>
 
