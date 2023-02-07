@@ -1,0 +1,41 @@
+@import '../styles/variables';
+@import '../styles/fonts';
+
+.light__dark{
+    width: 236px;
+    position: absolute;
+    bottom: 70px;
+    height: 70px;
+    border-top: 1px solid $color-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .button__light {
+            width: 118px;
+            height: 70px;
+            background: $color-white;
+            border: none;
+            border-right: 1px solid #E8E8E8;
+            cursor: pointer;
+        }
+        .button__dark {
+            width: 118px;
+            height: 70px;
+            background: $color-white;
+            border: none;
+            cursor: pointer;
+
+            &:focus{
+            fill: black;
+            }
+        }
+}
+
+
+
+
+
+
+
+
+

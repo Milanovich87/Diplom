@@ -1,0 +1,62 @@
+@import '../styles/variables';
+@import '../styles/fonts';
+
+.form__input--light {
+    border: none;
+    outline: none;
+    padding: 0;
+
+    label {
+        margin-top: $indent-ml;
+        display: flex;
+        flex-flow: column;
+        gap: $indent-xxs;
+        font-family: InterSemiBold, sans-serif;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        line-height: 20px;
+        color: $color-secondary;
+        text-align: left;
+
+        input {
+            padding: $indent-xs;
+            border: none;
+            outline: none;
+            color: $color-background-primary;
+            font-family: InterRegular, sans-serif;
+            font-weight: 400;
+            font-size: $font-size-subline-1;
+            line-height: 20px;
+        }
+    }
+}
+
+.form__input--dark {
+    border: none;
+    outline: none;
+    padding: 0;
+
+    label {
+        margin-top: $indent-ml;
+        display: flex;
+        flex-flow: column;
+        gap: $indent-xxs;
+        font-family: InterSemiBold, sans-serif;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        line-height: 20px;
+        color: $color-white;
+        text-align: left;
+
+        input {
+            padding: $indent-xs;
+            border: none;
+            outline: none;
+            color: $color-background-primary;
+            font-family: InterRegular, sans-serif;
+            font-weight: 400;
+            font-size: $font-size-subline-1;
+            line-height: 20px;
+        }
+    }
+}

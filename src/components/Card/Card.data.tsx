@@ -4,51 +4,58 @@ import { IBook, IStore } from '../../redux/types';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBook, removeBook, setCartBooksTotal } from '../../redux/actionCreators/booksActionCreators';
+import { addBook, addFavorite, addPrice, removeFavorite } from '../../redux/actionCreators/booksActionCreators';
+import { IconHeart } from '../MyIcons/IconHeart';
+import { RatingStars } from '../RatingStars/RatingStars';
 
-interface ICard extends IBook {
-    variant: string
 
-}
-export const Book = ({ variant, title, subtitle, image, isbn13, price }: ICard) => {
+export const Book = ({ title, subtitle, image, isbn13, price, }: IBook) => {
     const dispatch = useDispatch();
-    const totalBooksBasket = useSelector((state: IStore) => state.books.totalBooksBasket)
-
-    const handleToggleFavorite1 = () => {
-        dispatch(addBook(isbn13))
-        dispatch(setCartBooksTotal(totalBooksBasket + 1));
+    const favorites = useSelector((state: IStore) => state.books.favorites)
+    const isInclude = favorites.includes(isbn13);
+    const handleToggleFavorite = () => {
+        dispatch(isInclude ? removeFavorite(isbn13) : addFavorite(isbn13))
     }
 
-    const handleToggleFavorite2 = () => {
-        dispatch(removeBook(isbn13))
-        dispatch(setCartBooksTotal(totalBooksBasket - 1));
-    }
+    const handleAddToCart = () => {
+        const cartItem = {
+            isbn13,
+            title,
+            price,
+            image,
+            count: 1,
+        };
+        dispatch(addBook(cartItem));
+    };
+    const user = useSelector((state: IStore) => state.users.user)
 
 
     return (
-        <div className={`card--${variant}`} key={isbn13}>
-            <div className='card__main'>
-                <div className='card__info'>
-                    <h3 >
-                        <Link className='card__title' to={`fullBook/${isbn13}`}>
-                            {title}
-                        </Link>
-
-                    </h3>
-                    <div className='card__description'>
+        <div className='book' key={isbn13}>
+            <div className='book__main'>
+                <div className='book__info'>
+                    <Link className='book__title' to={`/fullBook/${isbn13}`}>
+                        {title}
+                    </Link>
+                    <div className='book__subtitle'>
                         {subtitle}
                     </div>
-                    <div className='card__price'>
+                    <div className='book__price'>
                         {price}
                     </div>
-                    <div className='card__price'>
-                        <Button className='btn-add' onClick={handleToggleFavorite1}>ADD TO CART</Button>
-                        <Button className='btn-add' onClick={handleToggleFavorite2}>DELETE</Button>
-
+                    <div className='book__btn'>
+                        {!user ? <Button className='btn-add' onClick={handleAddToCart} disabled>ADD TO CART</Button> :
+                            <Button className='btn-add' onClick={handleAddToCart} >ADD TO CART</Button>
+                        }
+                        <RatingStars />
                     </div>
                 </div>
                 <div className='card__image'>
-                    <Image className={`photo--${variant}`} image={image} alt={title} />
+                    {!user ?
+                        <Button className='btn-favorite' onClick={handleToggleFavorite} disabled><IconHeart color={isInclude ? 'red' : 'white'} /></Button> :
+                        <Button className='btn-favorite' onClick={handleToggleFavorite}><IconHeart color={isInclude ? 'red' : 'white'} /></Button>
+                    }
+                    <Image className='book__image' image={image} alt={title} />
                 </div>
             </div>
 

@@ -5,6 +5,7 @@
   width: 100%;
   top: 0;
   z-index: 1000;
+      border-bottom: 1px solid black;
 }
 
 .header::before {
@@ -16,12 +17,20 @@
 }
 .header__body {
   max-width: 100%;
-  height: 84px;
-  background-color: #dfa034;
+  height: 70px;
+  background-color: white;;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  .header__logo{
+    font-size:28px;
+    margin: 0 20px;
+  }
+  .header__home{
+    text-decoration: none;
+    color: black;
+  }
 
   .search__form{
     display: none;
@@ -33,62 +42,56 @@
       height: 100%;
       .search__input{
         width: 100%;
-        background-color: #5360CD;
-        border: none;
+        background-color: white;
+        border: 1px solid black;
+        border-right: none;
+        margin: 15px 0;
         font-family: InterRegular, sans-serif;
           font-size: 16px;
           font-weight: 400;
           line-height: 24px;
-          color: #FFFFFF;
+          color: black;
           padding-left: 32px;
           &::placeholder{
                     font-family: InterRegular, sans-serif;
                     font-size: 16px;
                     font-weight: 400;
                     line-height: 24px;
-                    color: #FFFFFF;
-                    // padding-left: 32px;
+                    color: black;
           }
       }
           .button__close {
-              background-color: #5360CD;
-              padding: 0 32px 0 32px;
+              background-color: white;
+              border: 1px solid black;
+              border-left: none;
+              margin: 15px 0;
+              cursor: pointer;
             }
     }
 
-  .header__burger {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    .header__btn {
-      border-right: 1px solid #5360CD;
-    }
-  }
 
     .header__button {
-      width: 84px;
       display: block;
-      height: 100%;
+      padding: 7px;
       margin: 0;
       background-color: transparent;
-      padding: 0 32px;
       outline: none;
       border: none;
-      border-left: 1px solid #5360CD;
-      border-right: 1px solid #5360CD;
+      border-radius: 5px;
+      cursor: pointer;
       &:hover {
-        cursor: pointer;
-        background-color: #2737cf;
+        background-color: rgb(214, 214, 214);
       }
     }
   .header__navbar {
     height: 100%;
-        max-width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    // gap: 25px;
+    margin-right: 20px;
     .user{
       width: 84px;
     }

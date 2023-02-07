@@ -6,9 +6,10 @@ import { dataLoad } from '../../redux/actionCreators/booksActionCreators';
 import './Blog.scss';
 
 import { Pagination } from '../Pagination/Pagination';
+import SubscribeForm from '../Forms/SubscribeForm/SubscribeForm';
 
 
-export const Blog = () => {
+export const NewBooks = () => {
 
     const data = useSelector((state: IStore) => state.books.books);
 
@@ -52,15 +53,19 @@ export const Blog = () => {
     // }, [currentPage, booksPerPage, data.length])
 
     return (
-        <>
-            <div className={`blog__body`}>
-                <div className='blog__main-content'>
-                    {currentBook.map((card, i) => <Book key={card.isbn13} variant='middle' price={card.price} isbn13={card.isbn13} title={card.title} image={card.image} />)}
+        <div className='books'>
+            <div className={`books__body`}>
+                <div className="books__title">
+                    <h1>NEW RELEASES BOOKS</h1>
+                </div>
+                <div className='books__content'>
+                    {currentBook.map((card, i) => <Book key={card.isbn13} authors={card.authors} price={card.price} isbn13={card.isbn13} title={card.title} image={card.image} />)}
                 </div>
             </div>
 
             < Pagination dataCount={dataCount} />
+            <SubscribeForm />
 
-        </>
+        </div>
     )
 }

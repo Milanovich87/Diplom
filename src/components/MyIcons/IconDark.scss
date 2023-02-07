@@ -1,0 +1,18 @@
+@import '../styles/variables';
+@import '../styles/fonts';
+
+.theme__right--light {
+    color: $color-background-primary;
+
+    &:not([disabled]):hover {
+        color: $color-primary2;
+    }
+}
+
+.theme__right--dark {
+    color: #000000;
+
+    &:not([disabled]):hover {
+        color: $color-primary2;
+    }
+}

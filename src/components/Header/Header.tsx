@@ -1,34 +1,32 @@
 
-import { useEffect, useState } from 'react'
-// import { Burger } from '../Burger/Burger'
+import { useState } from 'react'
 import { Button } from '../Button/Button'
-// import { IconClose } from '../MyIcons/IconClose'
-// import { IconSearch } from '../MyIcons/IconSearch'
-// import { IconUser } from '../MyIcons/IconUser'
 import './Header.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { setSearchValue } from '../../redux/actionCreators/booksActionCreators'
-import { IconBasket } from '../MyIcons/SvgDisLike'
+import { IconBasket } from '../MyIcons/IconBasket'
 import { Link } from 'react-router-dom'
-import store from '../../redux/store'
-// import { IconHeart } from '../MyIcons/IconHeart'
+import { IconClose } from '../MyIcons/IconClose'
+import { IconSearch } from '../MyIcons/IconSearch'
+import { IconUser } from '../MyIcons/IconUser'
+import { IconHeart } from '../MyIcons/IconHeart'
+import { Burger } from '../Burger/Burger'
+import { ThemeToggler } from '../ThemeToggler/ThemeToggler'
 
 export const Header = () => {
+    const user = useSelector((state: IStore) => state.users.user)
 
     const [show, setShow] = useState('')
     const onClick = () => setShow('show')
     const search = show === ' ' ? ' ' : show
     const onClickClose = () => setShow(' ')
     const searchValue = useSelector((state: IStore) => state.books.searchValue);
-    console.log(searchValue)
     const dispatch = useDispatch();
 
     const handleInputChange = (e: any) => {
         dispatch(setSearchValue(e.target.value))
     }
-    const totalBooksBasket = useSelector((state: IStore) => state.books.totalBooksBasket)
-
 
 
 
@@ -36,8 +34,9 @@ export const Header = () => {
         <div className="header">
             <header className='header__body'>
                 <div className='header__logo'>
-                    <h2>BOOKSTORE</h2>
+                    <Link className='header__home' to={'/'}><h2>BOOKSTORE</h2></Link>
                 </div>
+
                 <form className={`${search}search__form`}>
                     <input
                         type="text"
@@ -46,14 +45,22 @@ export const Header = () => {
                         value={searchValue}
                         onChange={handleInputChange}
                     />
-                    <Button className='button__close' onClick={onClickClose}>закрыть</Button>
+                    <Button className='button__close' onClick={onClickClose}><IconClose /></Button>
                 </form>
                 <div className='header__navbar'>
-                    <Button className='header__button' onClick={onClick}>поиск</Button>
-                    <Link className='header__button' to={'/basket'} ><span>{totalBooksBasket}</span><IconBasket /></Link>
-                    <div className="user">
-                        юзер
+                    <div className="header__button">
+                        <Button className='header__button' onClick={onClick}><IconSearch /></Button>
                     </div>
+
+                    {/* <ThemeToggler /> */}
+
+                    {!user && <div className="header__button">
+                        <Link className='header__button' to={'/sign_in'}><IconUser /></Link>
+                    </div>}
+                    <div className="header__burger">
+                        <Burger setMenu={Function} />
+                    </div>
+
                 </div>
 
             </header>

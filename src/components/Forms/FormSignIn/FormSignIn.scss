@@ -1,0 +1,116 @@
+@import '../../styles/variables';
+@import '../../styles/fonts';
+
+.form-sign-in--light {
+  max-width: 624px;
+  margin: 150px auto;
+  padding: 0 40px 40px 40px;
+  border: 1px solid $color-background-primary2;
+  border-radius: 2px;
+  text-align: left;
+  background-color: lightblue;
+  
+.form__text{
+  font-family: InterRegular, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $font-size-subline-1;
+  line-height: 20px;
+  color: $color-secondary;
+  margin-top: 16px;
+  &:hover {
+      cursor: pointer;
+      color: $color-primary;
+    }
+}
+  .form__text:hover {
+    cursor: pointer;
+    color: $color-primary;
+  }
+
+  .form__submit {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    .submit__text {
+      font-family: InterBold, sans-serif;
+      user-select: none;
+      font-weight: 500;
+      font-size: $font-size-subline-1;
+      line-height: 20px;
+      margin-top: 20px;
+      color: $color-background-primary;
+
+      a {
+        margin-left: 6px;
+        color: $color-primary;
+
+        &:hover {
+          color: $color-primary2;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.form-sign-in--dark {
+  max-width: 624px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 0 40px 40px 40px;
+  border: 1px solid $color-background-main;
+  border-radius: 2px;
+  text-align: left;
+
+  .form__text {
+    font-family: InterRegular, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $font-size-subline-1;
+    line-height: 20px;
+    color: $color-white;
+    margin-top: 16px;
+
+    &:hover {
+      cursor: pointer;
+      color: $color-primary;
+    }
+  }
+
+  .form__text:hover {
+    cursor: pointer;
+    color: $color-primary;
+  }
+
+  .form__submit {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    .submit__text {
+      font-family: InterBold, sans-serif;
+      user-select: none;
+      font-weight: 500;
+      font-size: $font-size-subline-1;
+      line-height: 20px;
+      margin-top: 20px;
+      color: $color-background-primary;
+
+      a {
+        margin-left: 6px;
+        color: $color-primary;
+
+        &:hover {
+          color: $color-primary2;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

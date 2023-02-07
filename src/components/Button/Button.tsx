@@ -1,6 +1,9 @@
 import React, { ButtonHTMLAttributes, ReactElement } from 'react' // { useState }
 import './Buttons.scss'
 
+import { useContext } from 'react'
+import { ThemeContext } from '../Posts/contexts'
+
 type ButtonProps = {
     type?: string
     link?: string
@@ -27,8 +30,6 @@ export const dataButtons: ButtonProps[] = [
         text: 'Secondary 2',
         className: 'btn-secondary2',
     },
-
-
 ]
 
 
@@ -44,10 +45,11 @@ export const Button = ({
     count,
     ...rest
 }: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
+    const { theme } = useContext(ThemeContext)
 
     return (
         <button
-            className={`btn ${className}`} // для dataButtons
+            className={`btn--${theme} ${className}`} // для dataButtons
             // className={className}
             disabled={disabled}
             onClick={onClick}

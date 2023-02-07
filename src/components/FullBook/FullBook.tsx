@@ -3,13 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { bookLoad } from "../../redux/actionCreators/booksActionCreators"
 import { IBook, IStore } from "../../redux/types"
-import { Book } from "../Card/Card.data"
+import { FullItem } from "../FavoriteBook/FavoriteBook"
 
-interface ICard extends IBook {
-    variant: string
-}
 
-export const FullBook = ({ variant, title, subtitle, image, isbn13 }: ICard) => {
+
+export const FullBook = ({ title, subtitle, image, }: IBook) => {
     const oneBook = useSelector((state: IStore) => state.books.oneBook);
     const dispatch = useDispatch();
     const { bookId } = useParams()
@@ -17,34 +15,13 @@ export const FullBook = ({ variant, title, subtitle, image, isbn13 }: ICard) => 
     useEffect(() => {
         dispatch(bookLoad(bookId!));
     }, [bookId]);
-    console.log(bookId)
-    console.log(oneBook)
+
 
     return (
         <div>
-            {oneBook && < Book variant={"middle"} {...oneBook} />
+            {oneBook && < FullItem  {...oneBook} />
             }
         </div>
-
-        // <div className={`card--${variant}`} >
-        //     <div className='card__main'>
-        //         <div className='card__info'>
-        //             <a href='#' className='card__title'>
-        //                 <h3 >{title}</h3>
-        //             </a>
-        //             <div className='card__description'>
-        //                 {subtitle}
-        //             </div>
-        //         </div>
-        //         <div className='card__image'>
-        //             <Image className={`photo--${variant}`} image={image} alt={title} />
-        //         </div>
-        //     </div>
-        // </div >
-
-
-
-
     )
 }
 

@@ -7,4 +7,5 @@ const setCurrentPage = (newPage: number) => ({
     newPage,
 });
 
+
 export { setCurrentPage }

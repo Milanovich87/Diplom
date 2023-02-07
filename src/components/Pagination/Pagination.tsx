@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './Pagination.scss'
 import { Button } from '../Button/Button'
-// import { IconLeftArrow } from '../MyIcons/IconLeftArrow'
-// import { IconRightArrow } from '../MyIcons/IconRightArrow'
-import { useContext } from 'react'
+
 // import { ThemeContext } from '../Posts/contexts';
 import { useDispatch, useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { setCurrentPage } from '../../redux/actionCreators/settingsActionCreators'
+import { IconLeftArrow } from '../MyIcons/IconLeftArrow'
+import { IconRightArrow } from '../MyIcons/IconRightArrow'
 
 interface PaginationType {
 
@@ -20,9 +20,6 @@ export const Pagination = ({ dataCount }: PaginationType) => {
     const [isNextDisabled, setIsNextDisabled] = useState(false);
     const currentPage = useSelector((state: IStore) => state.settings.currentPage);
     const booksPerPage = useSelector((state: IStore) => state.settings.booksPerPage);
-    console.log(currentPage)
-    console.log(booksPerPage)
-    console.log(dataCount)
 
     const dispatch = useDispatch()
 
@@ -32,7 +29,7 @@ export const Pagination = ({ dataCount }: PaginationType) => {
         setIsNextDisabled(total === currentPage);
     }, [currentPage, booksPerPage, dataCount])
     return (
-        <div className={`pagination--`}>
+        <div className={`pagination`}>
             <div className='wrapper'>
                 <div className='pagination__body'>
                     <div className='pagination__left'>
@@ -42,7 +39,7 @@ export const Pagination = ({ dataCount }: PaginationType) => {
                             disabled={isPrevDisabled}
                             onClick={() => dispatch(setCurrentPage(currentPage - 1))}
                         >
-                            {/* <IconLeftArrow /> */}
+                            <IconLeftArrow />
                             {'Prev'}
                         </Button>
                     </div>
@@ -55,7 +52,7 @@ export const Pagination = ({ dataCount }: PaginationType) => {
                             onClick={() => dispatch(setCurrentPage(currentPage + 1))}
                         >
                             {'Next'}
-                            {/* <IconRightArrow /> */}
+                            <IconRightArrow />
                         </Button>
                     </div>
                 </div>

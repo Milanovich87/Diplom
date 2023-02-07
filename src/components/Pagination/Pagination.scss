@@ -1,7 +1,8 @@
 @import '../styles/variables';
 @import '../styles/fonts';
 
-.pagination--light{
+.pagination{
+  // margin: 0 125px;
 .pagination__body {
     padding: 32px 0;
     display: flex;
@@ -15,11 +16,20 @@
       &:hover {
         .left__btn{
           color: $color-primary;
+          }
+                    svg {
+                      color: $color-primary;
+                    }
         }
-        .left--light{
-          color: $color-primary;
-        }
-        }
+                .left__btn {
+                      border: none;
+                        width: 70px;
+                        background: white;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                  }
     }
 
     .pagination__center {
@@ -37,10 +47,18 @@
                 .right__btn {
                   color: $color-primary;
                 }
-            
-                .right--light {
-                  color: $color-primary;
-                }
+                                svg {
+                                  color: $color-primary;
+                                }
+              }
+              .right__btn{
+                    border: none;
+                      width: 70px;
+                      background: white;
+                      cursor: pointer;
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
               }
     }
   }
@@ -68,90 +86,8 @@
       }
     }
   }
-    .left__btn,
-    .right__btn {
-      color: $color-background-primary;
-      gap: 11px;
-      background: $color-background-main;
-    }
+    
+      
+    
 }
 
-.pagination--dark {
-  .pagination__body {
-    padding: 32px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .page__numer{
-      color: $color-white;
-    }
-
-    .pagination__left {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-                  &:hover {
-                      .left__btn {
-                        color: $color-primary;
-                      }
-                  
-                      .left--light {
-                        color: $color-primary;
-                      }
-                    }
-    }
-
-    .pagination__center {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      gap: $indent-xs;
-    }
-
-    .pagination__right {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-                  &:hover {
-                      .right__btn {
-                        color: $color-primary;
-                      }
-                  
-                      .right--light {
-                        color: $color-primary;
-                      }
-                    }
-    }
-  }
-
-  .pagination__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    outline: none;
-    border: none;
-    background-color: transparent;
-    font-family: InterSemiBold, sans-serif;
-    font-weight: 600;
-    font-size: $font-size-body-1;
-    line-height: $indent-s;
-    color: $color-white;
-    cursor: pointer;
-
-    &:hover {
-      color: $color-primary;
-
-      svg {
-        fill: $color-primary;
-      }
-    }
-  }
-  .left__btn, .right__btn{
-    color: $color-background-primary;
-    gap: 11px;
-    &:hover {
-        color: $color-primary;
-    }
-  }
-}
