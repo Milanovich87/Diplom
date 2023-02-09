@@ -5,7 +5,7 @@ import { IStore } from '../../redux/types'
 import { dataLoad } from '../../redux/actionCreators/booksActionCreators';
 import './Blog.scss';
 import { Pagination } from '../Pagination/Pagination';
-import SubscribeForm from '../Forms/SubscribeForm/SubscribeForm';
+import { SubscribeForm } from '../Forms/SubscribeForm/SubscribeForm';
 import { ThemeContext } from '../Posts/contexts';
 
 export const NewBooks = () => {

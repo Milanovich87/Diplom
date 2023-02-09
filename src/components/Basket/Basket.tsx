@@ -4,7 +4,7 @@ import { deleteAllBooksCart } from '../../redux/actionCreators/booksActionCreato
 import { IStore } from '../../redux/types';
 import { BasketItem } from '../BasketItem/BasketItem';
 import { Button } from '../Button/Button';
-import SubscribeForm from '../Forms/SubscribeForm/SubscribeForm';
+import { SubscribeForm } from '../Forms/SubscribeForm/SubscribeForm';
 import { ThemeContext } from '../Posts/contexts';
 import { totalBooks } from '../TotalCountersBasket/TotalBooksBasket';
 import { totalPrice } from '../TotalCountersBasket/TotalPraiceBasket';

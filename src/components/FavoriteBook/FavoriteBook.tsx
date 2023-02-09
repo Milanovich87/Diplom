@@ -17,7 +17,7 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SubscribeForm from '../Forms/SubscribeForm/SubscribeForm';
+import { SubscribeForm } from '../Forms/SubscribeForm/SubscribeForm';
 import { SwipeToSlide } from '../Carousel/Carousel';
 import { ThemeContext } from '../Posts/contexts';
 import { useContext } from 'react';
