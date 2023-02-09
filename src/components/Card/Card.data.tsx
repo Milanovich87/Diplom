@@ -4,9 +4,11 @@ import { IBook, IStore } from '../../redux/types';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBook, addFavorite, addPrice, removeFavorite } from '../../redux/actionCreators/booksActionCreators';
+import { addBook, addFavorite, removeFavorite } from '../../redux/actionCreators/booksActionCreators';
 import { IconHeart } from '../MyIcons/IconHeart';
 import { RatingStars } from '../RatingStars/RatingStars';
+import { ThemeContext } from '../Posts/contexts';
+import { useContext } from 'react';
 
 
 export const Book = ({ title, subtitle, image, isbn13, price, }: IBook) => {
@@ -28,10 +30,10 @@ export const Book = ({ title, subtitle, image, isbn13, price, }: IBook) => {
         dispatch(addBook(cartItem));
     };
     const user = useSelector((state: IStore) => state.users.user)
-
+    const { theme } = useContext(ThemeContext)
 
     return (
-        <div className='book' key={isbn13}>
+        <div className={`book--${theme}`} key={isbn13}>
             <div className='book__main'>
                 <div className='book__info'>
                     <Link className='book__title' to={`/fullBook/${isbn13}`}>
@@ -58,7 +60,6 @@ export const Book = ({ title, subtitle, image, isbn13, price, }: IBook) => {
                     <Image className='book__image' image={image} alt={title} />
                 </div>
             </div>
-
         </div>
     )
 }

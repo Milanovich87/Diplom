@@ -1,18 +1,18 @@
 @import '../styles/variables';
 @import '../styles/fonts';
 
-.left {
+.left--light {
     color: $color-grey;
 
-    // &:not([disabled]):hover {
-    //     color: $color-primary2;
-    // }
+    &:not([disabled]):hover {
+        color: $color-primary2;
+    }
 }
 
 .left--dark {
-    color: $color-background-primary;
+    color: white;
 
-    // &:not([disabled]):hover {
-    //     color: $color-primary2;
-    // }
+    &:not([disabled]):hover {
+        color: $color-primary2;
+    }
 }

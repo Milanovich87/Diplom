@@ -1,7 +1,7 @@
 @import '../styles/variables';
 @import '../styles/fonts';
 
-.light__dark{
+.light__dark--light{
     width: 236px;
     position: absolute;
     bottom: 70px;
@@ -29,6 +29,38 @@
             fill: black;
             }
         }
+}
+
+.light__dark--dark {
+    width: 236px;
+    position: absolute;
+    bottom: 70px;
+    height: 70px;
+    border-top: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+                
+    .button__light {
+        width: 118px;
+        height: 70px;
+        background: $color-secondary;;
+        border: none;
+        border-right: 1px solid #E8E8E8;
+        cursor: pointer;
+    }
+
+    .button__dark {
+        width: 118px;
+        height: 70px;
+        background: $color-secondary;
+        border: none;
+        cursor: pointer;
+        fill: white;
+        &:focus {
+            fill: black;
+        }
+    }
 }
 
 

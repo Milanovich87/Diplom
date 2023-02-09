@@ -1,9 +1,7 @@
 import { useState } from 'react'
-
 import { Button } from '../../Button/Button'
 import { Input } from '../../Input/Input'
 import './FormNewPassword.scss'
-
 import { useContext } from 'react'
 import { ThemeContext } from '../../Posts/contexts';
 import { THEMES } from '../../Posts/constants';
@@ -44,7 +42,6 @@ export const FormNewPassword = () => {
                 onChange={(e) => setInputPassword(e.target.value)}
                 error={error}
                 errorText='Ошибка'
-
             />
             <Input
                 className='form__input'

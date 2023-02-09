@@ -1,6 +1,6 @@
 
 import { IBooksStore } from '../types';
-import { ADD_BOOK, ADD_FAVORITE, ADD_PRICE, DELETE_ALL_BOOKS_CART, MINUS_BOOK_BASKET, PLUS_BOOK_BASKET, REMOVE_BOOK, REMOVE_FAVORITE, REMOVE_PRICE, SET_BOOK, SET_BOOKS, SET_BOOKS_CART, SET_COUNT_TOTAL, SET_SEARCH_VALUE, SET_TOTAL_BOOKS_CART } from '../actionTypes/booksActionTypes';
+import { ADD_BOOK, ADD_FAVORITE, DELETE_ALL_BOOKS_CART, MINUS_BOOK_BASKET, PLUS_BOOK_BASKET, REMOVE_BOOK, REMOVE_FAVORITE, SET_BOOK, SET_BOOKS, SET_COUNT_TOTAL, SET_SEARCH_VALUE } from '../actionTypes/booksActionTypes';
 
 const initialState = {
     books: [],
@@ -50,14 +50,6 @@ const booksReducer = (state: IBooksStore = initialState, action: any) => {
                 oneBook: book,
             })
         }
-        // case ADD_BOOK: {
-        //     const { isbn13 } = action;
-        //     return ({
-        //         ...state,
-        //         booksInBasket: [...state.booksInBasket, isbn13],
-
-        //     })
-        // }
         case ADD_BOOK: {
             const { book } = action;
             const findBook = state.booksInBasket.find((el) => el.isbn13 === book.isbn13);
@@ -67,17 +59,14 @@ const booksReducer = (state: IBooksStore = initialState, action: any) => {
                 return {
                     ...state,
                     booksInBasket: [...state.booksInBasket],
-
                 }
             } else {
                 return {
                     ...state,
                     booksInBasket: [...state.booksInBasket, book],
-
                 }
             }
         }
-        // break;
         case REMOVE_BOOK: {
             const { isbn13 } = action;
             return ({
@@ -85,8 +74,7 @@ const booksReducer = (state: IBooksStore = initialState, action: any) => {
                 booksInBasket: state.booksInBasket.filter((el) => el.isbn13 !== isbn13),
             })
         }
-
-        case MINUS_BOOK_BASKET: {
+        case PLUS_BOOK_BASKET: {
             const { id } = action;
             const itemCount = state.booksInBasket.find((item) => item.isbn13 === id);
             if (itemCount) {
@@ -97,9 +85,7 @@ const booksReducer = (state: IBooksStore = initialState, action: any) => {
                 booksInBasket: [...state.booksInBasket],
             };
         }
-
-
-        case PLUS_BOOK_BASKET: {
+        case MINUS_BOOK_BASKET: {
             const { id } = action;
             const itemCount = state.booksInBasket.find((item) => item.isbn13 === id);
             itemCount.count--;
@@ -108,43 +94,11 @@ const booksReducer = (state: IBooksStore = initialState, action: any) => {
                 booksInBasket: [...state.booksInBasket],
             };
         }
-        case SET_TOTAL_BOOKS_CART: {
-            const { isbn13 } = action;
-            return ({
-                ...state,
-                totalBooksBasket: state.booksInBasket.filter((el) => el !== isbn13).length,
-            })
-        }
         case DELETE_ALL_BOOKS_CART: {
             return {
                 ...state,
                 booksInBasket: [],
             };
-        }
-
-        case SET_BOOKS_CART: {
-            const { bookscart } = action;
-            return ({
-                ...state,
-                bookscart,
-            })
-        }
-
-
-        case ADD_PRICE: {
-            const { price } = action;
-            return ({
-                ...state,
-                priceTotal: [...state.priceTotal, price],
-
-            })
-        }
-        case REMOVE_PRICE: {
-            const { price } = action;
-            return ({
-                ...state,
-                priceTotal: state.priceTotal.find((el) => el !== price),
-            })
         }
         case ADD_FAVORITE: {
             const { isbn13 } = action;
@@ -160,7 +114,6 @@ const booksReducer = (state: IBooksStore = initialState, action: any) => {
                 favorites: state.favorites.filter((el) => el !== isbn13),
             })
         }
-
         default: return state;
     }
 }

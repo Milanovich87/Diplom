@@ -31,7 +31,6 @@ export const Input = ({
     const { theme } = useContext(ThemeContext)
 
     return (
-
         <fieldset className={`form__input--${theme}`}>
             <label>{label}
                 <input

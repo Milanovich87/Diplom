@@ -1,10 +1,8 @@
-import { TABS } from '../../components/Posts/constants';
 import { SET_CURRENT_PAGE } from '../actionTypes/settingsActionTypes';
 
 const initial_state = {
     currentPage: 1,
     booksPerPage: 6,
-    activeTab: TABS.all,
 }
 
 const settingsReducer = (state = initial_state, action: any) => {

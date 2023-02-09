@@ -1,9 +1,3 @@
-
-
-
-
-
-import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,11 +5,11 @@ import './Carousel.scss'
 import { Book } from "../Card/Card.data";
 import { useSelector } from "react-redux";
 import { IStore } from "../../redux/types";
-// export default class SwipeToSlide extends Component
+import { ThemeContext } from "../Posts/contexts";
+import { useContext } from "react";
 
 export const SwipeToSlide = () => {
     const data = useSelector((state: IStore) => state.books.books);
-
 
     const settings = {
         className: "center",
@@ -28,7 +22,6 @@ export const SwipeToSlide = () => {
         swipeToSlide: true,
         variableWidth: true,
         variableHeight: true,
-
         adaptiveHeight: true,
         responsive: [
             {
@@ -53,19 +46,16 @@ export const SwipeToSlide = () => {
                 }
             }
         ],
-        afterChange: function (index: any) {
-            console.log(
-                `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-            );
-        }
     };
+    const { theme } = useContext(ThemeContext)
+
     return (
         <>
-            <Slider {...settings}>
-                {data.map((card, i) => <Book key={card.isbn13} authors={card.authors} price={card.price} isbn13={card.isbn13} title={card.title} image={card.image} />)}
-
-            </Slider>
+            <div className={`slider--${theme}`}>
+                <Slider   {...settings}>
+                    {data.map((card, i) => <Book key={card.isbn13} authors={card.authors} price={card.price} isbn13={card.isbn13} title={card.title} image={card.image} />)}
+                </Slider>
+            </div>
         </>
-
     );
 }

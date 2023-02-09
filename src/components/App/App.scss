@@ -1,7 +1,7 @@
 @import "../styles/variables";
 @import "../styles/fonts";
 
-.App {
+.App--light {
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -12,7 +12,7 @@
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
-    height: 100vh;
+    height: 100%;
     background-color: $color-secondary;
 }
 

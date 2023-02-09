@@ -10,19 +10,23 @@ import { signin } from '../../../redux/actionCreators/userActionCreators'
 import React from 'react'
 
 export const FormSignIn = () => {
-
     const { theme } = useContext(ThemeContext)
     const [email, setEmail] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
     }
+
     const [password, setPassword] = useState('')
+
     const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
     }
+
     const [error, setError] = useState(false)
+
     const onSubmit = (event: { preventDefault: () => any; target: any }) => {
         event.preventDefault()
         if (email.length < 0) {
@@ -43,7 +47,6 @@ export const FormSignIn = () => {
                 label='Email'
                 placeholder='Your email'
                 type='email'
-
                 error={error}
                 onChange={handleEmail}
                 value={email}
@@ -52,7 +55,6 @@ export const FormSignIn = () => {
                 label='Password'
                 type='password'
                 placeholder='Your password'
-
                 error={error}
                 onChange={handlePassword}
                 value={password}

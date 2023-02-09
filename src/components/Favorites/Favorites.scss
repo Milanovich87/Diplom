@@ -5,15 +5,24 @@
     margin: 0 210px;
     padding-bottom: 10px;
     .favorites__body {
-        padding: $indent-xxl 0;
+        padding: 85px 0;
         margin: 0 auto;
-        .favorites__title {
+        .favorites__title--light {
             text-align: start;
             font-size: 24px;
         }
+                .favorites__title--dark {
+                    text-align: start;
+                    font-size: 24px;
+                    color: white;
+                }
         .favorites__content {
             display: flex;
             flex-flow: row wrap;
+                    h2 {
+                            color: grey;
+                            margin: 225px auto;
+                        }
         }
     }
 }

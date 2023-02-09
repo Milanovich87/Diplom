@@ -5,8 +5,6 @@ import { bookLoad } from "../../redux/actionCreators/booksActionCreators"
 import { IBook, IStore } from "../../redux/types"
 import { FullItem } from "../FavoriteBook/FavoriteBook"
 
-
-
 export const FullBook = ({ title, subtitle, image, }: IBook) => {
     const oneBook = useSelector((state: IStore) => state.books.oneBook);
     const dispatch = useDispatch();
@@ -15,7 +13,6 @@ export const FullBook = ({ title, subtitle, image, }: IBook) => {
     useEffect(() => {
         dispatch(bookLoad(bookId!));
     }, [bookId]);
-
 
     return (
         <div>

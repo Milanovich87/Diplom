@@ -2,8 +2,8 @@
 @import '../styles/fonts';
 
 .pagination{
-  // margin: 0 125px;
-.pagination__body {
+  display: block;
+.pagination__body--light {
     padding: 32px 0;
     display: flex;
     align-items: center;
@@ -62,6 +62,71 @@
               }
     }
   }
+    .pagination__body--dark {
+      padding: 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      .pagination__left {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        &:hover {
+          .left__btn {
+            color: $color-primary;
+          }
+  
+          svg {
+            color: white;
+          }
+        }
+  
+        .left__btn {
+          border: none;
+          width: 70px;
+          background: $color-secondary;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+  
+      .pagination__center {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: $indent-xs;
+      }
+  
+      .pagination__right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        &:hover {
+          .right__btn {
+            color: $color-primary;
+          }
+  
+          svg {
+            color: white;
+          }
+        }
+  
+        .right__btn {
+          border: none;
+          width: 70px;
+          background: $color-secondary;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
 
   .pagination__btn {
     display: flex;
@@ -91,3 +156,7 @@
     
 }
 
+
+.page__number--dark{
+  color: white;
+}

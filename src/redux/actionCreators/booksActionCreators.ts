@@ -1,5 +1,5 @@
 import { put, takeEvery } from "redux-saga/effects";
-import { ADD_BOOK, ADD_FAVORITE, ADD_PRICE, DELETE_ALL_BOOKS_CART, LOAD_BOOK, LOAD_BOOKS, MINUS_BOOK_BASKET, PLUS_BOOK_BASKET, REMOVE_BOOK, REMOVE_FAVORITE, REMOVE_PRICE, SET_BOOK, SET_BOOKS, SET_BOOKS_CART, SET_COUNT_TOTAL, SET_SEARCH_VALUE, SET_TOTAL_BOOKS_CART } from "../actionTypes/booksActionTypes";
+import { ADD_BOOK, ADD_FAVORITE, DELETE_ALL_BOOKS_CART, LOAD_BOOK, LOAD_BOOKS, MINUS_BOOK_BASKET, PLUS_BOOK_BASKET, REMOVE_BOOK, REMOVE_FAVORITE, SET_BOOK, SET_BOOKS, SET_COUNT_TOTAL, SET_SEARCH_VALUE } from "../actionTypes/booksActionTypes";
 import { IBook } from "../types";
 
 function* fetchLoadBooks(action: any) {
@@ -94,15 +94,6 @@ const deleteAllBooksCart = () => ({
     type: DELETE_ALL_BOOKS_CART,
 });
 
-const addPrice = (price: any) => ({
-    type: ADD_PRICE,
-    price
-});
-
-const removePrice = (price: any) => ({
-    type: REMOVE_PRICE,
-    price
-});
 
 const addFavorite = (isbn13: string) => ({
     type: ADD_FAVORITE,
@@ -131,10 +122,7 @@ export {
     bookLoad,
     addBook,
     removeBook,
-    // setCartBooksTotal,
     deleteAllBooksCart,
-    addPrice,
-    removePrice,
     addFavorite,
     removeFavorite,
     plusBookBasket,

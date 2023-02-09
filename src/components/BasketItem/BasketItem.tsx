@@ -1,85 +1,73 @@
 import { Image } from '../Image/Image'
-// import './Card.scss'
-import { IBook, IStore } from '../../redux/types';
+import './BasketItem.scss'
+import { IBook, } from '../../redux/types';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { addBook, addPrice, deleteAllBooksCart, minusBookBasket, plusBookBasket, removeBook, removePrice } from '../../redux/actionCreators/booksActionCreators';
-import { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { minusBookBasket, plusBookBasket, removeBook, } from '../../redux/actionCreators/booksActionCreators';
+import { IconClose } from '../MyIcons/IconClose';
+import { IconPlus } from '../MyIcons/IconPlus';
+import { IconMinus } from '../MyIcons/IconMinus';
+import { useContext } from 'react';
+import { ThemeContext } from '../Posts/contexts';
 interface ICard extends IBook {
     price: number;
     title: string;
     image: string;
     isbn13: string;
     count: number;
-
 }
+
 export const BasketItem = ({ price, title, image, isbn13, count }: ICard) => {
-    // const dispatch = useDispatch();
-    // const [count, setCount] = useState(1)
-
-    // const totalBooksBasket = useSelector((state: IStore) => state.books.totalBooksBasket)
-
-
-    // const handlePlusBook = () => {
-    //     dispatch(addBook(isbn13));
-    //     dispatch(addPrice(price));
-    //     setCount(count + 1)
-    //     dispatch(setCartBooksTotal(totalBooksBasket + 1))
-
-    // }
-
-    // const handleMinusBook = () => {
-    //     // dispatch(removeBook(isbn13))
-    //     setCount(count - 1)
-    //     dispatch(removePrice(price));
-    //     dispatch(setCartBooksTotal(totalBooksBasket - 1));
-    // }
-
     const dispatch = useDispatch();
+
     const handleDeleteInCart = () => {
         dispatch(removeBook(isbn13));
+    };
 
+    const handlePlusBookBasket = () => {
+        dispatch(plusBookBasket(isbn13));
     };
 
     const handleMinusBookBasket = () => {
-        dispatch(minusBookBasket(isbn13));
+        dispatch(count <= 0 ? removeBook(isbn13) : minusBookBasket(isbn13));
     };
-    const handlePlusBookBasket = () => {
-        // dispatch(plusBookBasket(isbn13));
-        dispatch(count <= 0 ? removeBook(isbn13) : plusBookBasket(isbn13));
-    };
+    // @ts-ignore
+    const totalPriceBook = price.split('$').pop() * count
+    const { theme } = useContext(ThemeContext)
 
     return (
-        <div className={`card`} key={isbn13}>
-            <div className='card__main'>
-                <div className='card__info'>
+        <div className='item' key={isbn13}>
+            <div className='item__body'>
+                <div className='card__image'>
+                    <Image className={`image__basket--${theme}`} image={image} alt={title} />
+                </div>
+                <div className='item__info'>
                     <h3 >
-                        <Link className='card__title' to={`/fullBook/${isbn13}`}>
+                        <Link className={`item__title--${theme}`} to={`/fullBook/${isbn13}`}>
                             {title}
                         </Link>
                     </h3>
-                    <div className='card__price'>
-                        {price}
+                    <h4 className={`price--${theme}`}>{price}</h4>
+                    <div className={`item__price--${theme}`}>
+                        <h4>Total:</h4>${totalPriceBook.toFixed(2)}
+
                     </div>
-                    <div className='card__price'>
-                        <Button className='btn-add' onClick={handleMinusBookBasket} >+</Button>
-                        {count}
-                        {count === 0 ?
-                            <Button className='btn-add' onClick={handlePlusBookBasket} disabled>-</Button> :
-                            <Button className='btn-add' onClick={handlePlusBookBasket}>-</Button>
-                        }
+                    <div className='item__buttons'>
+                        <div className='item__count'>
+                            <Button className={`btn__count--${theme}`} onClick={handlePlusBookBasket} ><IconPlus /></Button>
+                            <p className={`count--${theme}`}>{count}</p>
+                            {count === 0 ?
+                                <Button className={`btn__count--${theme}`} onClick={handleMinusBookBasket} disabled><IconMinus /></Button> :
+                                <Button className={`btn__count--${theme}`} onClick={handleMinusBookBasket}><IconMinus /></Button>
+                            }
+                        </div>
+                        <div className='item__delete'>
+                            <Button className={`btn__count--${theme}`} onClick={handleDeleteInCart}><IconClose /></Button>
+                        </div>
                     </div>
-                    <div className='card__delete'>
-                        <p onClick={handleDeleteInCart}>X</p>
-                    </div>
-                </div>
-                <div className='card__image'>
-                    <Image className={`photo`} image={image} alt={title} />
                 </div>
             </div>
-
         </div>
     )
 }

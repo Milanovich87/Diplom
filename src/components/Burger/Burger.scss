@@ -31,6 +31,7 @@
         justify-content: center;
         cursor: pointer;
         gap: 4px;
+        padding: 10px;
     }
 
     .burger-bar {
@@ -295,7 +296,7 @@
     .burger-bar {
         width: 20px;
         height: 2.5px;
-        background-color: black;
+        background-color: white;;
         border-radius: 0.5em;
 
     }
@@ -316,8 +317,8 @@
 
     .visible {
         display: inherit;
-        background: $color-white;
-        z-index: 1;
+        background-color: $color-secondary;
+            z-index: 1;
             position: absolute;
                 top: 70px;
                 right: 0;
@@ -362,6 +363,7 @@
                 cursor: pointer;
                 border-bottom: 1px solid grey;
                 padding: 0.5rem 0;
+                
             }
         
             .m__link:last-child {
@@ -406,13 +408,13 @@
             font-weight: 600;
             line-height: 24px;
             width: 236px;
-            background: $color-white;
+            background-color: $color-secondary;
             border-bottom: 1px solid $color-light ;
             cursor: pointer;
     
             a {
-                color: $color-secondary;
-                width: 100%;
+            color: white;
+            width: 100%;
     
                 &:hover {
                     color: $color-primary;
@@ -437,12 +439,12 @@
             font-size: 16px;
             font-weight: 600;
             line-height: 24px;
-            background: $color-white;
+            background-color: $color-secondary;
             cursor: pointer;
             border-bottom: 1px solid $color-white;
     
             a {
-                color: $color-secondary;
+                color: white;
                 width: 100%;
     
                 &:hover {
@@ -468,12 +470,12 @@
                     font-size: 16px;
                     font-weight: 600;
                     line-height: 24px;
-                    background: $color-white;
+                    background: $color-secondary;
                     cursor: pointer;
                     border-bottom: 1px solid $color-white;
         
                     a {
-                        color: $color-secondary;
+                        color: white;
                         width: 100%;
         
                         &:hover {

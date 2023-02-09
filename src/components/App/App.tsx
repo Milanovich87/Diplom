@@ -1,4 +1,3 @@
-
 import './App.scss';
 import { Header } from '../Header/Header';
 import { FullBook } from '../FullBook/FullBook';
@@ -30,7 +29,7 @@ export const App = () => {
         <Routes>
           <Route path='/'>
             <Route index element={<NewBooks />} />
-            <Route path='/' element={<NewBooks />} />
+            {/* <Route path='/' element={<NewBooks />} /> */}
             <Route path="fullBook">
               <Route path=":bookId" element={<FullBook />} />
             </Route>

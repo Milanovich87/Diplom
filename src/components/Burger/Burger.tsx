@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import '../Burger/Burger.scss'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-// import { Button } from "../Button/Button";
 import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
 import { useContext } from 'react'
 import { ThemeContext } from '../Posts/contexts';
@@ -15,7 +14,11 @@ import { totalBooks } from "../TotalCountersBasket/TotalBooksBasket";
 
 
 export const Burger = ({ setMenu }: { setMenu: Function }) => {
-    const totalBooksBasket = useSelector((state: IStore) => state.books.totalBooksBasket)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const user = useSelector((state: IStore) => state.users.user)
+    const booksInBasket = useSelector((state: IStore) => state.books.booksInBasket);
 
     function useOutsideAlerter(ref: any, setMenu: Function) {
         useEffect(() => {
@@ -35,9 +38,7 @@ export const Burger = ({ setMenu }: { setMenu: Function }) => {
     const [burger_class, setBurgerClass] = useState("burger-bar unclicked")
     const [menu_class, setMenuClass] = useState("menu hidden1")
     const [isMenuClicked, setIsMenuClicked] = useState(false)
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const user = useSelector((state: IStore) => state.users.user)
+
     const handleLogOut = () => {
         dispatch(logOut());
         localStorage.removeItem('jwtAccess');
@@ -60,50 +61,17 @@ export const Burger = ({ setMenu }: { setMenu: Function }) => {
 
     const { theme } = useContext(ThemeContext)
     const menuRef = useRef(null);
-    useOutsideAlerter(menuRef, setMenu);
 
-    const booksInBasket = useSelector((state: IStore) => state.books.booksInBasket);
+    useOutsideAlerter(menuRef, setMenu);
 
 
     return (
-        // <div className={`burger--${theme}`} ref={menuRef}>
-        //     <nav>
-        //         <div className="burger-menu" onClick={updateMenu}>
-        //             <div className={burger_class} ></div>
-        //             <div className={burger_class} ></div>
-        //             <div className={burger_class} ></div>
-        //         </div>
-        //     </nav>
-        //     <div className={menu_class} ref={menuRef}>
-        //         {user &&
-        //             <div className='menu__username'>
-        //                 <span className='initials2'>{`${user.username?.charAt(0).toUpperCase()}${user.username?.charAt(user.username.length - 1).toUpperCase()}`}</span>
-        //                 <div className="user__name">{user?.username}</div>
-        //             </div>
-        //         }
-        //         <div className='home__link'>
-        //             <NavLink to='/' style={{ textDecoration: 'none' }}>Home</NavLink>
-        //         </div>
-        //         <div className='add-post__link'>
-        //             <NavLink to='/favorites' style={{ textDecoration: 'none' }}><IconHeart /> MY FAVORITES</NavLink>
-        //         </div>
-        //         <div className='my-posts__link'>
-        //             <NavLink to='/basket' style={{ textDecoration: 'none' }}><IconBasket /> MY CART</NavLink>
-        //         </div>
-        //         <ThemeToggler />
-        //         <div>
-        //             <button className='log-out__link' onClick={handleLogOut}>Log Out</button>
-        //         </div>
-
-        //     </div>
-        // </div>
         <div className={menu_class} ref={menuRef}>
             {user &&
                 <div className={`burger--${theme}`}>
                     <div className="header__button">
                         <Link className='header__button' to={'/basket'} ><span >{!totalBooks(booksInBasket) ? '' : totalBooks(booksInBasket)}</span><IconBasket /></Link>
                     </div>
-
                     <div className="header__button">
                         <Link className='header__button' to={'/favorites'}><IconHeart /></Link>
                     </div>
@@ -134,11 +102,7 @@ export const Burger = ({ setMenu }: { setMenu: Function }) => {
                         <div>
                             <button className='log-out__link' onClick={handleLogOut}>Log Out</button>
                         </div>
-
                     </div>
-
-
-
                 </div>}
         </div>
     )

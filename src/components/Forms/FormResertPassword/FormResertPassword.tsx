@@ -1,9 +1,7 @@
 import { useState } from 'react'
-
 import { Button } from '../../Button/Button'
 import { Input } from '../../Input/Input'
 import './FormResertPassword.scss'
-
 import { useContext } from 'react'
 import { ThemeContext } from '../../Posts/contexts';
 
@@ -45,7 +43,6 @@ export const FormResertPassword = () => {
                 onChange={(e) => setInputEmail(e.target.value)}
                 error={error}
                 errorText='Ошибка'
-
             />
             <div className='form__submit'>
                 <Button className='form__btn' type='submit' children='Resert password' onClick={handleMail} />
